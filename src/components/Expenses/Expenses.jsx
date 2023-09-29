@@ -28,7 +28,10 @@ function Expenses({ expenses }) {
 
   return (
     <Card className="expenses">
-      <ExpensesFilter onChangeFilter={filterChangedHandler} />
+      <ExpensesFilter
+        selected={filteredYear}
+        onChangeFilter={filterChangedHandler}
+      />
       {expenseItems}
     </Card>
   );
