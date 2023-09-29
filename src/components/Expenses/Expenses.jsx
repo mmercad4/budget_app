@@ -13,16 +13,12 @@ function Expenses({ expenses }) {
 
   const expenseItems = expenses.map((expense) => {
     return (
-      <div>
-        <div className="expenses">
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            date={expense.date}
-            amount={expense.amount}
-          />
-        </div>
-      </div>
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        date={expense.date}
+        amount={expense.amount}
+      />
     );
   });
 
