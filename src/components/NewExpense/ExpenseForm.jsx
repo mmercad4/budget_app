@@ -24,7 +24,7 @@ const ExpenseForm = (props) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        date: new Date(event.target.value).toISOString().split("T")[0],
+        date: new Date(event.target.value),
       };
     });
   };
@@ -36,6 +36,7 @@ const ExpenseForm = (props) => {
       amount: "",
       date: "",
     });
+    console.log(userInput);
 
     props.onSaveExpenseData(userInput);
   };
