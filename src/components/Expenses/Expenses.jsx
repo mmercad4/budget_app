@@ -39,17 +39,19 @@ function Expenses({ expenses }) {
     );
   });
 
+  let expensesContent = <p>No expenses found.</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses;
+  }
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangedHandler}
       />
-      {filteredExpenses.length == 0 ? (
-        <p>No Expenses found.</p>
-      ) : (
-        filteredExpenses
-      )}
+      {expensesContent}
     </Card>
   );
 }
