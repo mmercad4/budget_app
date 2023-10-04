@@ -11,7 +11,24 @@ function Expenses({ expenses }) {
     setFilteredYear(filteredYear);
   };
 
-  const expenseItems = expenses.map((expense) => {
+  /*   const expenseItems = expenses.map((expense) => {
+    if (expense.date.getFullYear() === Number(filteredYear)) {
+      return (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          date={expense.date}
+          amount={expense.amount}
+        />
+      );
+    }
+  }); */
+
+  const expenseItems = expenses.filter(
+    (expense) => expense.date.getFullYear() === Number(filteredYear)
+  );
+
+  const filteredExpenses = expenseItems.map((expense) => {
     return (
       <ExpenseItem
         key={expense.id}
@@ -28,7 +45,11 @@ function Expenses({ expenses }) {
         selected={filteredYear}
         onChangeFilter={filterChangedHandler}
       />
-      {expenseItems}
+      {filteredExpenses.length == 0 ? (
+        <p>No Expenses found.</p>
+      ) : (
+        filteredExpenses
+      )}
     </Card>
   );
 }
